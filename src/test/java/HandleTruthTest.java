@@ -40,9 +40,21 @@ public class HandleTruthTest {
 
     @Test
     public void testCountWords2() {
+        String msg = "";
+        for (int i = 0; i < 10001; i++) {
+            if (i != 0) {
+                msg += " ";
+            }
+            msg += "monkey";
+        }
 
+        HashMap<String, Integer> wordMap = HandleTruth.countWords(msg);
+
+        assert(wordMap.isEmpty() == false);
+        assert(wordMap.get("monkey") == 10000 + 1);
 
     }
+
 
     @Test
     public void testSpecialWords() {
