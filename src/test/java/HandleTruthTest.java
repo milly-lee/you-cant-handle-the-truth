@@ -41,6 +41,22 @@ public class HandleTruthTest {
     @Test
     public void testCountWords2() {
 
+
+    }
+
+    @Test
+    public void testSpecialWords() {
+        String msg = "I i , . ! ; ?";
+        HashMap<String,Integer> wordMap = HandleTruth.countWords(msg);
+
+        assert(wordMap.get("I") == 1);
+        assert(wordMap.get("i") == 1);
+        assert(wordMap.get(",") == 1);
+        assert(wordMap.get(".") == 1);
+        assert(wordMap.get("!") == 1);
+        assert(wordMap.get(";") == 1);
+        assert(wordMap.get("?") == 1);
+
     }
 
     @Test
