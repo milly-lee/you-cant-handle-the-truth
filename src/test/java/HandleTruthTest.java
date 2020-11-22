@@ -96,7 +96,11 @@ public class HandleTruthTest {
     }
 
     @Test
-    public void testOrderWords2() {
+    public void testCountWords3() {
+        String msg = "        ";
+
+        HashMap<String, Integer> wordMap = HandleTruth.countWords(msg);
+        assert(wordMap.size() == 0);
 
     }
 
