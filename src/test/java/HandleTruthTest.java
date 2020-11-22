@@ -1,6 +1,9 @@
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class HandleTruthTest {
     @Test
@@ -73,6 +76,22 @@ public class HandleTruthTest {
 
     @Test
     public void testOrderWords() {
+        HashMap<String, Integer> wordMap = new HashMap<>();
+        wordMap.put("mango", 82);
+        wordMap.put("Taro", 128);
+        wordMap.put("cake", 0);
+
+        TreeMap<Integer, Set<String>> orderMap = HandleTruth.orderWords(wordMap);
+
+        assert(orderMap.size() == 3);
+
+        // Loop through every key/value pair in ordered map
+        for(Map.Entry<Integer, Set<String>> entry : orderMap.entrySet()) {
+            // Loop through ever word in value pair
+            for (String word : entry.getValue()) {
+                assert(wordMap.get(word) == entry.getKey()); // make sure the value is right
+            }
+        }
 
     }
 
